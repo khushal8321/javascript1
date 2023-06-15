@@ -130,3 +130,34 @@ function specificpost(){
  })
      
 }
+function getusername() {
+  fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(posts => {
+      const tbody = document.getElementById("tbody");
+      const usersids = posts.map(post => post.userId);
+      const particularuserids = [...new Set(usersids)]; // Get unique user ids
+      const userrequests = particularuserids.map(userId =>
+        fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+          .then(response => response.json())
+      );
+
+      Promise.all(userrequests)
+        .then(users => {
+          const usersById = users.reduce((acc, user) => {
+            acc[user.id] = user;
+            return acc;
+          }, {});
+
+          const rowsHtml = posts.map(post => `
+            <tr>
+              
+              <td>${usersById[post.userId].name}</td>
+             
+            </tr>
+          `);
+
+          tbody.innerHTML = rowsHtml.join('');
+        });
+    });
+}

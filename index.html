@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>javascript1</title>
-    <link rel="stylesheet" type="text/css" href="script.js">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <header>
+     
     <div id="showpost"></div>
     <button onclick="getallpost()">all post</button>
     <button onclick="getallcomment()">all comment</button>
@@ -14,6 +16,7 @@
     <button onclick="getallcommentposts()">postcommnetusers</button>
     <input type="text" id="specificpost" name="specificpost">
     <button onclick="specificpost()">post comment</button>
+    <button onclick="getusername()">getposttousername</button>
     <table id="tableforpost">
         <thead id="thead">
           <!-- <tr>
@@ -24,7 +27,7 @@
         </thead>
         <tbody id="tbody"></tbody>
       </table>
-
+     </header>
 </body>
 <script src="script.js"></script>
 </html>
