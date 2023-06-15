@@ -1,3 +1,4 @@
+// all post with name
 function getalluserposts() {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
@@ -32,7 +33,44 @@ function getalluserposts() {
   }
   
 
+  function getallcommentposts() {
+    fetch('https://jsonplaceholder.typicode.com/comments')
+      .then(response => response.json())
+      .then(posts => {
+        const tbody = document.getElementById("tbody");
+        const userIds = posts.map(post => post.userId);
+        const particularuserids = [...new Set(userIds)]; 
+        const userrequests = particularuserids.map(userId =>
+          fetch(`https://jsonplaceholder.typicode.com/posts/${userId}`)
+            .then(response => response.json())
+        );
+
+        Promise.all(userrequests)
+          .then(users => {
+            const usersById = users.reduce((acc, user) => {
+              acc[user.id] = user;
+              return acc;
+            }, {});
+
+            const rowsHtml = posts.map(post => `
+              <tr>
+                 <td>${post.postId}</td>
+                <td>${post.id}</td>
+                
+               
+                
+                <td>${post.email}</td>
+                <td>${post.body}</td>
+              </tr>
+            `);
+        //    !--usersById[post.userId] --!
+            tbody.innerHTML = rowsHtml.join('');
+          });
+      });
+  }
   
+
+
   
 
 function getallpost(){
