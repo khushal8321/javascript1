@@ -109,3 +109,24 @@ fetch('https://jsonplaceholder.typicode.com/posts')
             tableBody.innerHTML = rowsHtml.join('');
     })
      }
+function specificpost(){
+    let ppost = document.getElementById('specificpost');
+    let c = ppost.value;
+    fetch(`https://jsonplaceholder.typicode.com/comments?postId=${c}`)
+    .then(response => response.json())
+    .then(post => {(post)
+        const tableBody = document.getElementById("tbody");
+        console.log(tableforpost)
+        const rowsHtml = post.map(json=>`
+         <tr>
+             <td>${json.postId}</td>
+             <td>${json.id}</td>
+             <td>${json.name}</td>
+             <td>${json.email}</td>
+             <td>${json.body}</td>
+         </tr>
+         `)
+         tableBody.innerHTML = rowsHtml.join('');
+ })
+     
+}
