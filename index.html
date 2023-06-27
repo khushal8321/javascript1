@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>javascript1</title>
+    
+    <title>calculator</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <header>
-     
-    <div id="showpost"></div>
-    <button onclick="getallpost()">all post</button>
-    <button onclick="getallcomment()">all comment</button>
-    <button onclick="getalluserposts()">postsforusers</button>
-    <button onclick="getallcommentposts()">postcommnetusers</button>
-    <input type="text" id="specificpost" name="specificpost">
-    <button onclick="specificpost()">post comment</button>
-    <button onclick="getusername()">getposttousername</button>
-    <table id="tableforpost">
-        <thead id="thead">
-          <!-- <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Body</th>
-          </tr> -->
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
-     </header>
+    <div class="main">
+    <h1>calculator</h1>
+    <div id="resultofnum"></div>
+    <div id="sumoftotal"></div>
+    <ul class="colorofnumber">
+      <li onclick="onenumber('1')" id="boxofletter" value="1">1</li>
+      <li onclick="onenumber('2')" id="boxofletter" value="1">2</li>
+      <li onclick="onenumber('3')" id="boxofletter" value="1">3</li>
+      <li onclick="onenumber('4')" id="boxofletter" value="1">4</li>
+      <li onclick="onenumber('5')" id="boxofletter" value="1">5</li>
+      <li onclick="onenumber('6')" id="boxofletter" value="1">6</li>
+    </ul>
+
+    <ul class="colorofnumber">
+      <li onclick="onenumber('7')" id="boxofletter" value="1">7</li>
+      <li onclick="onenumber('8')" id="boxofletter" value="1">8</li>
+      <li onclick="onenumber('9')" id="boxofletter" value="1">9</li>
+      <li onclick="onenumber('0')" id="boxofletter" value="1">0</li>
+    </ul>
+    <ul class="colorofnumber">
+        <li onclick="onenumber('+')" id="boxofletter" value="1">+</li>
+        <li onclick="onenumber('-')" id="boxofletter" value="1">-</li>
+        <li onclick="onenumber('*')" id="boxofletter" value="1">*</li>
+        <li onclick="onenumber('/')" id="boxofletter" value="1">/</li>
+        <li><button onclick="calculate()">calculate</button></li>
+        <li><button onclick="clear()">clear</button></li>
+    </ul>
+    
+    </div>
+    
+    
 </body>
-<script src="script.js"></script>
+<script src="index.js">
+</script>
 </html>
