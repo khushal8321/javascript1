@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // snake water and gun
+    
+
+    let user1count =0;
+    let user2count =0;
+    for(let i=0;i<=10;i++){
+
+    let user1 = prompt("select the snake,water and gun");
+    console.log(user1);
+    let arr = ['snake', 'water', 'gun'];
+    let randomIndex = Math.floor(Math.random() * arr.length);
+    console.log(randomIndex);
+    let user2 = arr[randomIndex];
+    if(user1==user2){
+        console.log("tie");
+        console.log("this is not consider as round")
+    }
+
+    else{
+       
+    console.log("------------------");
+    console.log(user1,user2);
+     if(user1 == "water"){
+        if(user2 == "snake"){
+            console.log("user 2 win");
+            user2count++;
+        }
+        else if(user2 == "gun"){
+            console.log("user 1 win");
+            user1count++;
+        }
+     }else if(user1 == "snake"){
+        if(user2 =="gun"){
+            console.log("user 2 win");
+            user2count++;
+        }
+        else if(user2 == "water"){
+            console.log("user 1 win");
+            user1count++;
+        }
+     }else if(user1 == "gun"){
+        if(user2 == "water"){
+            console.log("user 2 win");
+            user2count++;
+        }
+        else if(user2 == "snake"){
+            console.log("user 1 win");
+            user1count++;
+        }
+     }
+        
+    }
+}
+
+if(user1count<user2count){
+    console.log("user 2 winner");
+
+}else {
+    console.log("user 1 winner");
+}
+   
+</script>
+</html>
